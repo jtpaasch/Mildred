@@ -10,8 +10,9 @@ Simple use
 ----------
 
 In the simplest case, include Mildred.php, then tell Mildred which
-template to render: 
-
+template to render:
+ 
+```php
     <?php 
     // Include "Mildred.php" from the "mildred" folder.
     include 'mildred/Mildred.php';
@@ -23,7 +24,7 @@ template to render:
         'template' => 'my_template.html',
 
     ));
-
+```
 
 Specifying which types and variables to allow
 ---------------------------------------------
