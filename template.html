@@ -1,0 +1,36 @@
+<h1>Sample Template</h1>
+
+Here is a sample template.
+
+<h3>Variables</h3>
+
+Greeting: {{ greeting }}<br>
+
+Another variable: {{ another_variable }}<br>
+
+Contact: {{ contact.name }}<br>
+Email: {{ contact.email }}<br>
+
+
+<h3>If statements</h3>
+
+{% if greeting is 'Hello world!' %}
+    Greeting: {{ greeting }}<br>
+{% endif %}
+
+{% if greeting is 'Goodbye!' %}
+    The greeting is 'Goodbye'.<br>
+{% endif %}
+
+{% if not another_variable %}
+    Another variable is not defined.<br>
+{% endif %}
+
+<h3>Foreach loops</h3>
+
+<ul>
+{% foreach user in users %}
+    <li>User: {{ user.name }}</li>
+{% endforeach %}
+</ul>
+
