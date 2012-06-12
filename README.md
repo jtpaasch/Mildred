@@ -45,9 +45,9 @@ a nice, UTF-8 encoded string. Use it like this:
     // Include "Mildred.php" from the "mildred" folder.
     include 'mildred/Mildred.php';
 
-    *// Include your String class so you can use it with Mildred.
+    // Include your String class so you can use it with Mildred.
     // (Alternatively, you could use autoloading.) 
-    include 'types/String.php';*
+    include 'types/String.php';
 
     // Tell Mildred to render "my_template.html," and 
     // allow instances of String as variables:
@@ -56,7 +56,7 @@ a nice, UTF-8 encoded string. Use it like this:
         // The template to render: 
         'template' => 'my_template.html',
 
-        *// The types that are allowed in the template:
+        // The types that are allowed in the template:
         'types' => array( 
             'String', 
         ),
@@ -64,7 +64,7 @@ a nice, UTF-8 encoded string. Use it like this:
         // The variables that are allowed in the template:
         'variables' => array(
             'greeting' => new String('Hello World!'),
-        ),*
+        ),
     ));
 
 That sends the variable 'greeting' to the template, and since 
