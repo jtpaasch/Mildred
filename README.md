@@ -47,7 +47,7 @@ a nice, UTF-8 encoded string. Use it like this:
 
     // Include your String class so you can use it with Mildred.
     // (Alternatively, you could use autoloading.) 
-    include 'String.php';
+    include 'types/String.php';
 
     // Tell Mildred to render "my_template.html," and 
     // allow instances of String as variables:
