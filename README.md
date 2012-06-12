@@ -208,7 +208,7 @@ about undefined and invalid variable types:
 Internals and file permissions
 ------------------------------
 
-Mildred's internal workings are simple. 
+Mildred works as follows: 
 
 * When the render() method is called, Mildred first checks
   for a parsed version of the template. If there is a 
