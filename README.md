@@ -88,9 +88,9 @@ array to our variables:
         ),
     ),
 
-You can have ]arrays nested in arrays too, but again, at the bottom
-of the chain, any array _item_ must be a valid type before Mildred 
-will put it into a template. 
+You can have arrays nested in arrays too, but again, at the bottom
+of the chain, any array _item_ must be an instance of an allowed 
+data type before Mildred will put it into a template. 
 
 
 Template syntax
@@ -139,6 +139,71 @@ And this tests if 'greeting' is not 'Hello World!':
     {% endif %}
 
 
+Debugging and reparsing templates
+---------------------------------
+
+The first time Mildred encounters a template, it parses it and 
+converts it into appropriate PHP code. The next time, it will use
+the parsed version. This is to keep things fast. 
+
+However, it does mean that if you change your template in any way,
+you'll want to tell Mildred to reparse it. To do that, add a 
+'start_clean' option to the render() method: 
+
+    // Tell Mildred to render "my_template.html," and 
+    // allow instances of String as variables:
+    Mildred::render(array(
+        
+        // The template to render: 
+        'template' => 'my_template.html',
+
+        // The types that are allowed in the template:
+        'types' => array( 
+            'String', 
+        ),
+
+        // The variables that are allowed in the template:
+        'variables' => array(
+            'greeting' => new String('Hello World!'),
+        ),
+
+        // Start clean each time: reparse the template from scratch.
+        'start_clean' => true,
+    ));
+
+Mildred silently ignores undefined variables and variables that 
+are not an allowed type. This keeps errors out of production: 
+we don't want those errors breaking our sites. However, this can 
+make it hard to debug. You can turn on debugging by adding a 'debug'
+option to the render() method, in which case Mildred will tell you 
+about undefined and invalid variable types: 
+
+    // Tell Mildred to render "my_template.html," and 
+    // allow instances of String as variables:
+    Mildred::render(array(
+        
+        // The template to render: 
+        'template' => 'my_template.html',
+
+        // The types that are allowed in the template:
+        'types' => array( 
+            'String', 
+        ),
+
+        // The variables that are allowed in the template:
+        'variables' => array(
+            'greeting' => new String('Hello World!'),
+        ),
+
+        // Start clean each time: reparse the template from scratch.
+        'start_clean' => true,
+
+        // Display errors: 
+        'debug' => true,
+
+    ));
+
+
 Internals and file permissions
 ------------------------------
 
@@ -164,6 +229,10 @@ Mildred's internal workings are simple.
   the parsed version of "my_template.html" would be 
   .my_template.html. 
     * That parsed file is then served. 
+* When the parsed file is served, Mildred checks each variable
+  before it is displayed: it first checks that it exists, and then 
+  it makes sure it is an instance of an allowed data type. If it 
+  fails either of those tests, it is simply ignored. 
 
 Because Mildred creates a parsed version of the file and saves 
 it, PHP needs to have the correct permissions to read and 
