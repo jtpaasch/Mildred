@@ -232,7 +232,8 @@ Mildred works as follows:
     * That parsed file is then served. 
 * When the parsed file is served, Mildred checks each variable
   to make sure it exists, and that it is an instance of an allowed 
-  data type. If not, the variable is simply ignored. 
+  data type. If not, the variable is simply ignored (unless debugging
+  is on, in which case Mildred will throw exceptions).
 
 Because Mildred creates a parsed version of the file and saves 
 it, PHP needs to have the correct permissions to read and 
