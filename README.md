@@ -147,8 +147,9 @@ converts it into appropriate PHP code. The next time, it will use
 the parsed version. This is to keep things fast. 
 
 However, this also means that if you change your template in any way,
-you'll want to tell Mildred to reparse it. To do that, add a 
-'start_clean' option to the render() method: 
+you'll want to tell Mildred to reparse it (otherwise, you'll just keep
+seeing the old parsed version). To do that, add a 'start_clean' option 
+to the render() method: 
 
     // Tell Mildred to render "my_template.html," and 
     // allow instances of String as variables:
