@@ -174,6 +174,10 @@ seeing the old parsed version). To do that, add a 'start_clean' option
 to the render() method: 
 
 ```php
+    <?php
+
+    ...
+
     // Tell Mildred to render "my_template.html," and 
     // allow instances of String as variables:
     Mildred::render(array(
@@ -204,6 +208,10 @@ option to the render() method, in which case Mildred will tell you
 about undefined and invalid variable types: 
 
 ```php
+    <?php
+
+    ...
+
     // Tell Mildred to render "my_template.html," and 
     // allow instances of String as variables:
     Mildred::render(array(
