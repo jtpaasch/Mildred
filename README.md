@@ -146,7 +146,7 @@ The first time Mildred encounters a template, it parses it and
 converts it into appropriate PHP code. The next time, it will use
 the parsed version. This is to keep things fast. 
 
-However, it does mean that if you change your template in any way,
+However, this also means that if you change your template in any way,
 you'll want to tell Mildred to reparse it. To do that, add a 
 'start_clean' option to the render() method: 
 
