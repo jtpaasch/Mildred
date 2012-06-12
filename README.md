@@ -14,6 +14,7 @@ template to render:
  
 ```php
     <?php 
+
     // Include "Mildred.php" from the "mildred" folder.
     include 'mildred/Mildred.php';
 
@@ -42,7 +43,9 @@ For instance, suppose you have a custom String class that takes
 a regular PHP string, strips out any malicious code, and returns 
 a nice, UTF-8 encoded string. Use it like this: 
 
+```php
     <?php 
+
     // Include "Mildred.php" from the "mildred" folder.
     include 'mildred/Mildred.php';
 
@@ -67,12 +70,15 @@ a nice, UTF-8 encoded string. Use it like this:
             'greeting' => new String('Hello World!'),
         ),
     ));
+```
 
 That sends the variable 'greeting' to the template, and since 
 'greeting' is an instance of String, Mildred will let it pass. 
 If 'greeting' were just a regular string --- 
 
+```php
             'greeting' => 'Hello World!',
+```
 
 --- Mildred would ignore it. 
 
@@ -81,6 +87,7 @@ array _item_ must be an instance of an allowed data type. For instance, Mildred
 would allow 'name' but ignore 'email' if we added the following
 array to our variables: 
 
+```php
     'variables' => array(
         'greeting' => new String('Hello World!'),
         'user' => array(
@@ -88,6 +95,7 @@ array to our variables:
             'email' => 'sally@home.com',
         ),
     ),
+```
 
 You can have arrays nested in arrays too, but again, at the bottom
 of the chain, any array _item_ must be an instance of an allowed 
@@ -100,9 +108,11 @@ Template syntax
 Template syntax is just a very basic form of Django or Twig style syntax. 
 Variables get enclosed in two curly braces: 
 
+```jinja
     <h1>Test template</h1>
 
     {{ greeting }}
+```
 
 Arrays take a dot syntax notation: 
 
