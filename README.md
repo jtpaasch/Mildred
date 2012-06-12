@@ -76,7 +76,7 @@ If 'greeting' were just a regular string ---
 --- Mildred would ignore it. 
 
 Mildred does allow arrays as variables, but each 
-array _item_ must instances of an allowed type. For instance, Mildred 
+array _item_ must be an instance of an allowed data type. For instance, Mildred 
 would allow 'name' but ignore 'email' if we added the following
 array to our variables: 
 
