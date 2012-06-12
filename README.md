@@ -116,39 +116,50 @@ Variables get enclosed in two curly braces:
 
 Arrays take a dot syntax notation: 
 
+```jinja
     {{ user.name }}
+```
 
 Foreach loops are done like this: 
 
+```jinja
     {% foreach user in users %}
         <li>{{ user }}</li>
     {% endforeach %}
+```
 
 If statements are allowed too. This tests if 'greeting' 
 is defined (or true): 
-    
+
+```jinja    
     {% if greeting %}
         {{ greeting }}
     {% endif %}
+```
 
 This tests if a variable called 'on_time' is undefined (or false): 
 
+```jinja
     {% if not on_time %}
         Your delivery is running late.
     {% endif %}
+```
 
 This tests if 'greeting' has the value 'Hello World!':
 
+```jinja
     {% if greeting is 'Hello World!' %}
         {{ greeting }}
     {% endif %}
+```
 
 And this tests if 'greeting' is not 'Hello World!':
 
+```jinja
     {% if greeting is not 'Hello World!' %}
         {{ greeting }}
     {% endif %}
-
+```
 
 Debugging and reparsing templates
 ---------------------------------
@@ -162,6 +173,7 @@ you'll want to tell Mildred to reparse it (otherwise, you'll just keep
 seeing the old parsed version). To do that, add a 'start_clean' option 
 to the render() method: 
 
+```php
     // Tell Mildred to render "my_template.html," and 
     // allow instances of String as variables:
     Mildred::render(array(
@@ -182,6 +194,7 @@ to the render() method:
         // Start clean each time: reparse the template from scratch.
         'start_clean' => true,
     ));
+```
 
 Mildred silently ignores undefined variables and variables that 
 are not an allowed type. This keeps errors out of production: 
@@ -190,6 +203,7 @@ make it hard to debug. You can turn on debugging by adding a 'debug'
 option to the render() method, in which case Mildred will tell you 
 about undefined and invalid variable types: 
 
+```php
     // Tell Mildred to render "my_template.html," and 
     // allow instances of String as variables:
     Mildred::render(array(
@@ -212,9 +226,8 @@ about undefined and invalid variable types:
 
         // Display errors: 
         'debug' => true,
-
     ));
-
+```
 
 Internals and file permissions
 ------------------------------
