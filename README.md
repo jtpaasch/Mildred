@@ -228,12 +228,11 @@ Mildred works as follows:
   parsed template, and it takes the same name as the 
   original template, but it is prefixed by a dot. (for example, 
   the parsed version of "my_template.html" would be 
-  .my_template.html). 
+  ".my_template.html"). 
     * That parsed file is then served. 
 * When the parsed file is served, Mildred checks each variable
-  before it is displayed: it first checks that it exists, and then 
-  it makes sure it is an instance of an allowed data type. If it 
-  fails either of those tests, it is simply ignored. 
+  to make sure it exists, and that it is an instance of an allowed 
+  data type. If not, the variable is simply ignored. 
 
 Because Mildred creates a parsed version of the file and saves 
 it, PHP needs to have the correct permissions to read and 
