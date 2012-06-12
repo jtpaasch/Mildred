@@ -226,9 +226,9 @@ Mildred works as follows:
     * When the parser is finished, it returns the PHP code,
   and Mildred saves that code as a php file. This is the 
   parsed template, and it takes the same name as the 
-  original template, but it is prefixed by a dot. (E.g., 
+  original template, but it is prefixed by a dot. (for example, 
   the parsed version of "my_template.html" would be 
-  .my_template.html. 
+  .my_template.html). 
     * That parsed file is then served. 
 * When the parsed file is served, Mildred checks each variable
   before it is displayed: it first checks that it exists, and then 
